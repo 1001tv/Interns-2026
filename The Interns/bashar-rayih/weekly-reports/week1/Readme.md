@@ -1,6 +1,6 @@
 My Review of 1001.tv
 Reviewer: Beshar Mowfak Fareed
-Date: August 2026a
+Date: 22 August 2026
 1. My First Thoughts
 Overall, 1001.tv is a really great streaming service. I tested it on my phone, my computer, and my TV. It has a lot of good content and the website and TV apps are super easy to use. I loved how organized everything is. There are just a few confusing things about the subscriptions and using the phone app, but it is still a strong choice.
 2. Finding Shows and Content
