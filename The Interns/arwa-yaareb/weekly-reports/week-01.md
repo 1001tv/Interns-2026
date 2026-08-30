@@ -1,7 +1,7 @@
 # Weekly Report — Week 01 - Multi-platfom Review
 
 ## Summary
-During the first week of my internship/training (Week 1 of 8), I conducted an in-depth cross-platform UI/UX and functional evaluation of **1001**, an Iraqi streaming platform (AVOD/SVOD). I tested the service across Desktop Web, iPhone, iPad, and Smart TV screen mirroring to evaluate navigation, authentication flows, playback, multi-language support, and overall platform performance. I compiled all raw testing notes, device comparisons, and bug reports into a structured platform experience report.
+During the first week of my internship/training (Week 1 of 8), I conducted an in-depth cross-platform UI/UX and functional evaluation of **1001**, an Iraqi streaming platform (OTT). I tested the service across Desktop Web, iPhone, iPad, and Smart TV screen mirroring to evaluate navigation, authentication flows, playback, multi-language support, and overall platform performance. I compiled all raw testing notes, device comparisons, and bug reports into a structured platform experience report.
 
 ## Completed Tasks
 
