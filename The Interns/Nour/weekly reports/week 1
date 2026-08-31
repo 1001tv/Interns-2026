@@ -1,1 +1,31 @@
+1001 TV — Technical User Feedback
+Account & Authentication
+●	Sign-in is limited to phone number + OTP, with no email or third-party (Google/Apple) authentication option.
+●	OTP delivery is inconsistent; there were cases where the code arrived late or the retry/resend flow did not reset the timer correctly.
+●	Error messages during failed login are generic and don't specify whether the issue is network, invalid code, or server-side.
+Video Playback
+●	Occasional buffering/freezing during playback, suggesting adaptive bitrate switching isn't always smooth on unstable connections.
+●	No manual video quality selector, playback quality seems fully automatic with no user override.
+●	Subtitle rendering has positioning issues on some titles, subtitles overlap on-screen text or sit too close to the edge.
+●	Aspect ratio handling is inconsistent, black bars appear on some content even on devices that should support full-screen scaling.
+●	No picture-in-picture support, and no 10-second skip forward/back controls.
+Casting & Cross-Device
+●	Casting from mobile to TV (Chromecast/similar) is not reliable, connection drops or fails to initiate on first attempt.
+●	Continue Watching progress doesn't always sync in real time between mobile and TV sessions.
+Smart TV / Android TV App
+●	D-pad/remote navigation between rows and tiles is not always predictable, focus sometimes jumps or gets lost.
+●	No QR-code login option for TV, login has to be done manually with the remote, which is slow.
+●	Player controls on TV are less complete than on mobile (missing quality/subtitle settings).
+Search & Discovery
+●	No autocomplete or search-as-you-type suggestions.
+●	Search doesn't appear to be typo-tolerant or handle Arabic/English title variants well.
+●	No filtering by actor, director, or genre.
+●	Home screen recommendations don't seem to reflect watch history, no "Because You Watched" or similar personalized rows.
+Content & Positioning (positive)
+●	Strong Iraqi and regional content library, combined with international titles.
+●	1001 Originals add exclusive content not available on other apps I've used.
+●	Sports integration in the same app is a good engagement driver.
+●	Free tier alongside premium content lowers the barrier to try the service.
+Summary
+Content and positioning are strong. The main gaps I noticed as a user are in core app reliability: authentication flow, playback stability, TV navigation, and search/discovery. These are the areas that most directly affect day-to-day usability.
 
