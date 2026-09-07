@@ -17,7 +17,7 @@ A minimalist habit-tracking application built as part of the Android Development
 - **Multi-Screen Navigation:** Implemented `Screen1` and `AddHabitScreen` with forward navigation and back-stack handling (`close screen with value`).
 - **Interactive State Toggling:** Toggle buttons switch habit states between `O` (incomplete) and `✔` (completed).
 - **Dynamic Data Passing:** Captures text from the input field on `AddHabitScreen`, passes it back through `Screen1.OtherScreenClosed`, updates label text, and sets the hidden habit container's visibility to `true`.
-- **Modular Component Design:** Reusable `HorizontalArrangement` cards containing labels and action buttons across all habit rows[cite: 1].
+- **Modular Component Design:** Reusable `HorizontalArrangement` cards containing labels and action buttons across all habit rows.
 
 ---
 
