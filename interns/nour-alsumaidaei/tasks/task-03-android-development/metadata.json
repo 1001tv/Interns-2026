@@ -1,0 +1,6 @@
+{
+  "name": "DataPulse",
+  "description": "A personal finance analytics app with pastel accent colors, interactive KPI trends, and review tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
