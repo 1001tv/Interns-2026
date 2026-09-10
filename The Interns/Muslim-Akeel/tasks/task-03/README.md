@@ -1,4 +1,4 @@
-# StreakUp – Android App Builder Challenge
+# StreakUp – Android App Builder Challenge (Task 03)
 
 ## Overview
 A minimalist habit-tracking application built as part of the Android Development App Builder Challenge. The app displays daily habits, allows interactive completion toggling, and accepts custom entries via a secondary input screen.
