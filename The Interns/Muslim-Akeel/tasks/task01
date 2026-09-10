@@ -1,0 +1,55 @@
+# Task 01: Version Control
+
+Prepared by: Muslim
+Internship: 1001
+Date: 2026 September 5th
+
+## Summary
+
+The objective of this task was to learn how to use Git and GitHub for daily development work and understand the process of working with repositories, branches, commits, pushes, and pull requests.
+
+((preparing myself before starting))
+
+I had never really used Git or GitHub before this task, so this was completely new to me. Before starting, I went through some YouTube videos and articles to understand the basic terminology — what a repository, branch, commit, and pull request actually were.
+
+Reading about it only got me so far though. It wasn't until I actually opened the terminal and started running commands myself that the concepts started to click. I made mistakes along the way, but working through them helped me understand the workflow much better than just watching tutorials.
+
+((What I needed to do/Task objective))
+
+1. Learn how to use Git and GitHub
+2. Clone the repository
+3. Create my own branch
+4. Make a change: add all the folders and files required for my submission
+5. Commit the change
+6. Push the branch to GitHub
+7. Create a pull request
+8. Submit my weekly report
+
+## How I did it
+
+Since I was completely new to this, I decided to work directly from the terminal instead of a GUI tool, so I could actually understand what each Git command was doing rather than relying on buttons.
+
+I started by cloning the internship repository to my computer using "git clone". Before making any changes, I made sure to run "git pull origin main" to confirm my local copy was up to date with the latest version of main.
+
+I then created my own branch using "git checkout -b" so I wouldn't be making changes directly to main. This let me work freely on my own files without risking the main repository.
+
+After creating my branch, I added the folders and files required for my submission and began placing my work into what I thought were the correct locations.
+
+Then I used:
+- "git status" to check what had changed and confirm I was working with the correct files
+- "git add" to stage the files I wanted to include in the commit
+- "git commit -m" to save the changes with a commit message
+- "git log" to review my commit history
+- "git push" to upload my branch to GitHub
+
+Once it was on GitHub, I created a pull request from my branch to main so my work could be reviewed before merging.
+
+## Challenges faced
+
+- Since I was a complete beginner, one of the biggest challenges was simply understanding the folder and file naming conventions expected for the submission. At first I wasn't sure exactly how folders should be named or where certain files were supposed to go, so I ended up placing some files in the wrong location.
+
+  After going back and checking the naming format more carefully against what was expected, I renamed and moved the files into the correct structure. I then used "git status" again to confirm only the correct files were staged before re-committing and pushing the update.
+
+- Because I was new to the terminal-based workflow in general, I also found myself double-checking almost every command before running it, since I wasn't confident yet about what each one would actually do to my files or branch. This slowed me down at first, but it also meant I avoided making any major mistakes like committing to the wrong branch.
+
+Even though this was frustrating at times as someone starting from zero, going through the process myself — and having to fix my own naming mistakes — helped me understand the Git and GitHub workflow far better than just reading about it beforehand.
