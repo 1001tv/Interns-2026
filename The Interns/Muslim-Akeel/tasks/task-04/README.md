@@ -14,4 +14,4 @@ Habit Tracker is a cross-platform mobile application developed using **Thunkable
 
 | Thunkable Canvas & QR | New Habit Form (iOS) | Dashboard View (iOS) |
 | :---: | :---: | :---: |
-| ![Builder](./screenshots/thunkable-builder.png) | ![New Habit Form](./screenshots/new-habit-modal.jpg) | ![Habit Dashboard](./screenshots/habit-dashboard.jpg) |
+| ![Builder](./thunkable-builder.png) | ![New Habit Form](./new-habit-modal.jpg) | ![Habit Dashboard](./habit-dashboard.jpg) |
