@@ -48,15 +48,7 @@ Additionally, we attended our weekly Thursday Tech Talk, which provided deeper i
 **Challenge:** Ensuring all Task 04 deliverables (screenshots, Markdown reports, video links) follow proper GitHub pathing without repeating past naming confusions.  
 **Solution:** Structured all Task 04 assets under `Muslim-Akeel/tasks/task-04/` and placed the weekly summary in `Muslim-Akeel/weekly-reports/week-04-report.md`.
 
-## App Screenshots & Demo Link
 
-* **YouTube Short Demonstration:** [Watch Habit Tracker Demo on YouTube](https://youtube.com/shorts/9RZabFF1Egg?si=z_jzR_OF_2lwHr40)
-
-### App Screenshots
-
-| Thunkable Canvas & Live Preview | New Habit Modal (iOS) | Active Habit Dashboard (iOS) |
-| :---: | :---: | :---: |
-| ![Thunkable Builder](../tasks/task-04/screenshots/thunkable-builder.png) | ![New Habit Modal](../tasks/task-04/screenshots/new-habit-modal.jpg) | ![Habit Dashboard](../tasks/task-04/screenshots/habit-dashboard.jpg) |
 
 ## Reflection
 
