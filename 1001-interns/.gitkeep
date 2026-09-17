@@ -1,0 +1,43 @@
+**Weekly Report — Week 04**
+
+**Summary**
+Focused on establishing a  functional macOS development environment, attending the daily standsups and the weekly tech sessions. Explored multiple virtualization macOS setups before securing access to university iMacs, coordinating with campus IT across three days to update the OS and unlock administrative permissions for Xcode. Alongside initial Swift syntax review, attended Dawood's tech talk covering career transitions, high-impact workplace habits, backend engineering fundamentals, and strategies for delivering value at 1001.
+
+**Completed Tasks**
+
+* Researched and tested multiple macOS virtualization methods on Windows/PC hardware (VirtualBox, VMware, and a QEMU-based Linux external SSD setup).
+* Located and gained physical access to campus iMacs at the American Space to establish a stable iOS development workstation.
+* Coordinated with university IT across three consecutive days to resolve administrative locks, update the OS, and configure Xcode and command-line tools.
+* Successfully initialized and opened iOS projects inside Xcode on macOS.
+* Began reviewing core Swift language syntax, structure, and fundamentals.
+* Attended the weekly engineering tech session led by Dawood on professional development, backend architecture, and workplace impact.
+
+
+**Skills Learned**
+
+* **Technical skills:** macOS navigation and environment setup, basic Swift syntax and structure, command-line developer tools configuration (`xcode-select`), core backend concepts (data security, endpoint introduction, validation, performance latency optimization in milliseconds, staging vs. production, and code reviews).
+* **Tools or frameworks:** Xcode, macOS, Notion (documentation & tracking), virtualization software (VirtualBox, VMware, QEMU).
+* **Communication or teamwork skills:** Collaboration with teammate Bashar on alternative drive emulation; coordination with university IT for administrative access; understanding workplace communication standards (showing engagement via camera, spotting team bottlenecks and try ing to rpovide a posible solution, sharing managerial overhead, and delivering exact ticket requirements).
+
+**Challenges and Solutions**
+
+* **Challenge:** Lack of native Apple hardware and inability to run modern Xcode on personal machines due to driver incompatibility, region-blocked ISO downloads, and failed VirtualBox/VMware virtualization.
+* **Solution:** Tested an external SSD QEMU/Linux setup with a teammate(bashar), then transitioned entirely to on-campus university iMacs as a reliable physical hardware alternative, though it will require me to be physically there.
+
+
+* **Challenge:** University iMacs were on outdated software which blocked Xcode installation from the app store, the iMacs lacked command-line tools for Git operations, all of that with enforced strict administrative password restrictions.
+* **Solution:** Followed up consistently with university IT over three days to gain necessary administrative elevation, complete required OS updates (from Tahoe 26.1 to 27), and configure Xcode properly almost, bc of the huge files to download the emulators and packages.
+
+
+* ** Challenge:** Steep initial learning curve adapting to the macOS interface, shortcuts, and file system from Windows.
+* **Solution:** Actively documented workflows, used Notion for structured note-taking, and spent focused time practicing navigation directly on macOS hardware.
+
+
+
+**Feedback Received**
+
+* Key takeaways and internal guidance from Dawood's session: focus on reliability and checking work thoroughly, understand exactly what ticket requirements demand without doing more or less, proactively identify team bottlenecks, and focus on delivering measurable value.
+* Pending technical review with mentors on environment readiness and onboarding milestones as we reach the midpoint of the program.
+
+**Overall Progress**
+Progress: 50%
