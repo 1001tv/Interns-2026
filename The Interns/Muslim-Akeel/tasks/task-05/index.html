@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUIB 3D Printing Club</title>
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #1a1d24;
+            --accent-color: #d32f2f;
+            --accent-hover: #b71c1c;
+            --text-main: #f0f2f5;
+            --text-muted: #9aa0a6;
+            --border-color: #2d323e;
+            --input-bg: #121419;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px 60px;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            align-items: center;
+            gap: 40px;
+            padding: 60px 0 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 28px;
+            max-width: 480px;
+        }
+
+        .hero-graphic {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .layer {
+            height: 10px;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #d32f2f, #f57c00);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        section {
+            margin-top: 50px;
+        }
+
+        section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .form-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 28px;
+            max-width: 650px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 12px;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+            width: 100%;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-color);
+        }
+
+        .file-upload-box {
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            background-color: var(--input-bg);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .file-upload-box:hover {
+            border-color: var(--accent-color);
+        }
+
+        .file-upload-box input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .upload-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .file-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 8px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-hover);
+        }
+
+        footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 24px 32px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 60px;
+        }
+
+        footer strong {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 800px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+            .hero-graphic {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 3h12v4H6zM12 7v5M9 12h6l-3 5-3-5zM5 21h14"></path>
+                </svg>
+            </div>
+            <span>AUIB 3D Printing Club</span>
+        </div>
+        <nav>
+            <a href="#services">What we print</a>
+            <a href="#updates">Club updates</a>
+            <a href="#request">Request a print</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1>Bring your design off the screen.</h1>
+                <p>We are students at the American University of Iraq, Baghdad, printing prototypes, project parts and small gifts. Send us a file and we will tell you what it takes to print it.</p>
+                <a href="#request" class="btn-primary">Request a print</a>
+            </div>
+            <div class="hero-graphic">
+                <div class="layer" style="width: 100px;"></div>
+                <div class="layer" style="width: 140px;"></div>
+                <div class="layer" style="width: 180px;"></div>
+                <div class="layer" style="width: 210px;"></div>
+                <div class="layer" style="width: 230px;"></div>
+                <div class="layer" style="width: 245px;"></div>
+                <div class="layer" style="width: 255px;"></div>
+                <div class="layer" style="width: 260px;"></div>
+            </div>
+        </div>
+
+        <section id="services">
+            <h2>What we can print</h2>
+            <div class="grid-3" style="margin-top: 16px;">
+                <div class="card">
+                    <h3>Prototypes</h3>
+                    <p>Test a shape before you commit. Good for class projects and product ideas.</p>
+                </div>
+                <div class="card">
+                    <h3>Replacement parts</h3>
+                    <p>Clips, brackets, knobs and covers that are hard to find locally.</p>
+                </div>
+                <div class="card">
+                    <h3>Gifts and models</h3>
+                    <p>Keychains, name plates and desk models in the colours we have in stock.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="updates">
+            <h2>Club updates</h2>
+            <p class="section-desc">Latest news and announcements from the lab.</p>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>New Filaments Available</h3>
+                    <p>We now stock high-speed PLA, PETG for durable parts, and standard Resin for high-detail miniatures.</p>
+                </div>
+                <div class="card">
+                    <h3>Submission Guidelines</h3>
+                    <p>Please ensure all 3D models are submitted in .STL, .OBJ, or .3MF format. Maximum file size is 50MB.</p>
+                </div>
+                <div class="card">
+                    <h3>Lab Hours & Assistance</h3>
+                    <p>Visit our lab for file preparation help, model slicing tips, or design consultations before printing.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="request">
+            <h2>Request a print</h2>
+            
+            <div class="form-container" style="margin-top: 16px;">
+                <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="87032329-928c-4ff7-8039-2d3f0ad020e9">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="student_name" placeholder="e.g. Muslim Akeel" required>
+        </div>
+        <div class="form-group">
+            <label for="email">University email</label>
+            <input type="email" id="email" name="student_email" placeholder="student@auib.edu.iq" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="material">Material</label>
+            <select id="material" name="material" required>
+                <option value="" disabled selected>Choose a material</option>
+                <option value="PLA">PLA (Standard / General Purpose)</option>
+                <option value="PETG">PETG (Durable / Heat-Resistant)</option>
+                <option value="Resin">Resin (High Detail)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description">What are you printing?</label>
+        <textarea id="description" name="project_description" rows="3" placeholder="Describe your model, dimensions, or color preferences..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="file_link">3D Model File Link (Google Drive / OneDrive / Dropbox / WeTransfer)</label>
+        <input type="text" id="file_link" name="file_link" placeholder="https://drive.google.com/file/d/..." required>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
+            Make sure link access is set to <strong>"Anyone with the link can view"</strong>.
+        </div>
+    </div>
+
+    <button type="submit" class="btn-submit">Send request</button>
+</form>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>AUIB 3D Printing Club &copy; 2026 | Designed & Developed by <strong>Muslim Akeel</strong></p>
+    </footer>
+
+</body>
+</html>
