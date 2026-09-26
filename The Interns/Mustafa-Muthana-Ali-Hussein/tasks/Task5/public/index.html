@@ -1,0 +1,79 @@
+```html
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+
+
+<body>
+
+<h1> Hello! </h1>
+<h2> Sign Up to Get Started </h2>
+<input type = "text" id = emailID placeholder = "Email"> </input>
+<input type = "text" id = passwordID placeholder = "Password"> </input>
+<button type = "submit" onclick="sbmt()"> Submit </button>
+<h2> Sign In If You Already Have an Account </h2>
+
+<input type = "text" id = "emailID2" placeholder = "Email"> </input>
+<input type = "text"  id = "passwordID2" placeholder = "Password"> </input>
+<button type = "submit" onclick="sbmt2()"> Submit </button>
+
+<script>
+
+async function sbmt(){
+email = document.getElementById("emailID").value
+password = document.getElementById("passwordID").value
+
+let response = await fetch("/signup", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+email: email,
+password: password
+})
+});
+
+let data = await response.json();
+
+alert(data.message);
+}
+
+async function sbmt2(){
+email = document.getElementById("emailID2").value;
+password = document.getElementById("passwordID2").value;
+
+let response = await fetch("/login", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+email: email,
+password: password
+})
+});
+
+let data = await response.json();
+
+alert(data.message);
+}
+
+</script>
+
+</body>
+
+
+
+</html>
+```
