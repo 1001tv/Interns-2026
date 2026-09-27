@@ -4,9 +4,9 @@
 A programmatic UIKit iOS application built using Swift that demonstrates screen navigation, form validation, and data passing between View Controllers using `UINavigationController`.
 
 ## Demo
+use this link:
+https://github.com/user-attachments/assets/7735dee8-8fbd-4e69-87c0-843b81a00f51
 
-<!-- Replace the link below with your uploaded GIF or Video URL -->
-![App Demo](https://user-images.githubusercontent.com/your-username/your-repo-name/demo.gif)
 
 ## Features
 
@@ -42,4 +42,4 @@ A programmatic UIKit iOS application built using Swift that demonstrates screen 
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/your-username/twoNavigationScreen.git](https://github.com/your-username/twoNavigationScreen.git)
+   git clone [https://github.com/your-username/twoNavigationScreen.git]
