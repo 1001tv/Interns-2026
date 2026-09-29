@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Design tokens
+   Colors were repeated 15+ times across the original stylesheet.
+   Centralizing them here means the whole theme can be changed in one place.
+   ========================================================================== */
+:root {
+    --color-bg: #1b2233;
+    --color-bg-panel: #262f45;
+    --color-bg-kpi: #1b2233;
+
+    --color-primary: #f5a623;   /* orange accent: headings, buttons, numbers */
+    --color-accent: #3ccfcf;    /* teal accent: links, borders, highlights */
+    --color-text: #e6e9f0;
+    --color-text-muted: #cfd6e6;
+    --color-link-visited: #b58cff;
+    --color-link-active: #ff4d4d;
+
+    --radius-md: 8px;
+    --radius-sm: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+}
+
+/* ==========================================================================
+   Base layout
+   ========================================================================== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+    padding: var(--spacing-lg);
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: var(--color-primary);
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+}
+
+.greeting {
+    text-align: center;
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* Every section looks like a dashboard panel */
+.panel {
+    background-color: var(--color-bg-panel);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border-left: 6px solid var(--color-primary);
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+a { font-size: 16px; }
+a:link { color: var(--color-accent); }
+a:visited { color: var(--color-link-visited); }
+a:hover { color: var(--color-primary); }
+a:active { color: var(--color-link-active); }
+
+nav {
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+nav a {
+    margin: 0 8px;
+}
+
+/* ==========================================================================
+   Selector practice (descendant / child / adjacent / general sibling)
+   ========================================================================== */
+#experience p {
+    color: var(--color-text);
+}
+
+#experience > p {
+    font-weight: bold;
+}
+
+#projects h3 + p {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+#projects h3 ~ ul {
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   KPI boxes
+   ========================================================================== */
+.kpi-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.kpi-box {
+    flex: 1;
+    min-width: 150px;
+    background-color: var(--color-bg-kpi);
+    border: 2px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.kpi-number {
+    display: block;
+    font-size: 34px;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid var(--color-accent);
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-bg-kpi);
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Skills list
+   ========================================================================== */
+.skill-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.skill-item {
+    background-color: var(--color-bg-kpi);
+    padding: var(--spacing-sm);
+    margin: 4px 0;
+    border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.button {
+    padding: 10px var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 5px 0 0;
+}
+
+.button:hover {
+    background-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+fieldset {
+    border: 1px solid var(--color-accent);
+    border-radius: 6px;
+}
+
+legend {
+    color: var(--color-primary);
+}
+
+input, select, textarea {
+    margin-bottom: var(--spacing-sm);
+}
