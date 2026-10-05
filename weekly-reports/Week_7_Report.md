@@ -1,7 +1,6 @@
 # Internship Weekly Report — Week 7
 
-**Name:** Muslim Akeel  
-**Department:** Software Engineering / Backend  
+**Name:** Muslim Akeel   
 **Submission Date:** October 5, 2026  
 
 ---
