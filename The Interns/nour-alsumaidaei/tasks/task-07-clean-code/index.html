@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Nour AlSabtin">
+    <meta name="keywords" content="CV, Data Analyst, Python, SQL, Grafana, Baghdad">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nour AlSabtin - CV Dashboard</title>
+
+    <style>
+        /* ---------- Basic styling ---------- */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1b2233;
+            color: #e6e9f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f5a623;
+            font-size: 38px;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #3ccfcf;
+            border-bottom: 2px solid #3ccfcf;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #f5a623;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .greeting {
+            text-align: center;
+            color: #3ccfcf;
+            font-weight: bold;
+        }
+
+        /* Every section looks like a dashboard panel */
+        .panel {
+            background-color: #262f45;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            border-left: 6px solid #f5a623;
+        }
+
+        /* ---------- Link states (like example3) ---------- */
+        a { font-size: 16px; }
+        a:link { color: #3ccfcf; }
+        a:visited { color: #b58cff; }
+        a:hover { color: #f5a623; }
+        a:active { color: red; }
+
+        nav {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        nav a {
+            margin: 0 8px;
+        }
+
+        /* ---------- Selectors practice (like example3-css-part2) ---------- */
+
+        /* 1) Descendant selector: every p inside #experience */
+        #experience p {
+            color: #e6e9f0;
+        }
+
+        /* 2) Child selector: only the p that is a direct child of #experience */
+        #experience > p {
+            font-weight: bold;
+        }
+
+        /* 3) Adjacent sibling selector: the p right after each project title */
+        #projects h3 + p {
+            color: #3ccfcf;
+            font-weight: bold;
+        }
+
+        /* 4) General sibling selector: all ul after a project title */
+        #projects h3 ~ ul {
+            color: #cfd6e6;
+        }
+
+        /* ---------- KPI boxes (like Grafana panels) ---------- */
+        .kpi-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .kpi-box {
+            flex: 1;
+            min-width: 150px;
+            background-color: #1b2233;
+            border: 2px solid #3ccfcf;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .kpi-number {
+            display: block;
+            font-size: 34px;
+            font-weight: bold;
+            color: #f5a623;
+        }
+
+        /* ---------- Tables ---------- */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #3ccfcf;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1b2233;
+            color: #f5a623;
+        }
+
+        /* ---------- Skills list ---------- */
+        .skill-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .skill-item {
+            background-color: #1b2233;
+            padding: 8px;
+            margin: 4px 0;
+            border-radius: 4px;
+        }
+
+        /* ---------- Buttons ---------- */
+        .button {
+            padding: 10px 15px;
+            background-color: #f5a623;
+            color: #1b2233;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 5px 0 0;
+        }
+
+        .button:hover {
+            background-color: #3ccfcf;
+        }
+
+        /* ---------- Form ---------- */
+        fieldset {
+            border: 1px solid #3ccfcf;
+            border-radius: 6px;
+        }
+
+        legend {
+            color: #f5a623;
+        }
+
+        input, select, textarea {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <!-- ========== HEADER ========== -->
+    <h1 id="cv-title">Nour AlSabtin</h1>
+    <p class="subtitle">AI &amp; Data Analyst | Baghdad, Iraq</p>
+    <p class="subtitle"><b><i>Data<sub>raw</sub> &rarr; Insight<sup>2</sup></i></b> | <del>guessing</del> measuring</p>
+    <p class="greeting" id="greeting">Welcome to my CV dashboard!</p>
+
+    <!-- Internal links (jump inside the page) -->
+    <nav>
+        <a href="#about">About</a> |
+        <a href="#kpi">KPIs</a> |
+        <a href="#experience">Experience</a> |
+        <a href="#projects">Projects</a> |
+        <a href="#skills">Skills</a> |
+        <a href="#education">Education</a> |
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- ========== CONTROL PANEL (JavaScript buttons) ========== -->
+    <div class="panel">
+        <h2>Control Panel</h2>
+        <p>Play with my CV:</p>
+        <button class="button" id="greet-button">Say Your Name</button>
+        <button class="button" id="color-button">Change Background Color</button>
+        <button class="button" id="toggle-button">Hide Projects</button>
+        <button class="button" id="search-button">Search a Word in My Summary</button>
+        <p id="search-result"></p>
+    </div>
+
+    <!-- ========== ABOUT ========== -->
+    <div class="panel" id="about">
+        <h2>About Me</h2>
+        <p id="summary">Detail-oriented Computer Science student with practical experience in data analysis, software engineering, and AI algorithms. I develop and deploy data-driven applications using Python, SQL, Docker, and Grafana. I am eager to apply strong problem-solving skills to contribute to an innovative engineering team.</p>
+        <p>Languages I speak: <b>Arabic</b> (native) and <b>English</b> (professional proficiency).</p>
+    </div>
+
+    <!-- ========== KPI PANELS ========== -->
+    <div class="panel" id="kpi">
+        <h2>My Numbers</h2>
+        <div class="kpi-row">
+            <div class="kpi-box">
+                <span class="kpi-number">25%</span>
+                Data integrity improved
+            </div>
+            <div class="kpi-box">
+                <span class="kpi-number">20+</span>
+                Customer patterns found
+            </div>
+            <div class="kpi-box">
+                <span class="kpi-number">40%</span>
+                Less setup time with Docker
+            </div>
+            <div class="kpi-box">
+                <span class="kpi-number">100,000+</span>
+                Rows cleaned
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== EXPERIENCE ========== -->
+    <div class="panel" id="experience">
+        <h2>Experience</h2>
+        <h3>AI &amp; Data Analyst Intern</h3>
+        <p>Qi Card Company | Baghdad, Iraq | Jul 2025 - Aug 2025</p>
+        <ul>
+            <li>Engineered a data cleaning pipeline for a large retail sales dataset, improving data integrity by 25%.</li>
+            <li>Built automated Python scripts with Pandas and Matplotlib to visualize sales data and find 20+ customer behavior patterns.</li>
+            <li>Containerized the analysis workflow with Docker, reducing setup time by 40%.</li>
+            <li>Designed real-time monitoring dashboards in Grafana to show key performance indicators (KPIs).</li>
+        </ul>
+    </div>
+
+    <!-- ========== PROJECTS ========== -->
+    <div class="panel" id="projects">
+        <h2>Projects</h2>
+
+        <h3>Retail Sales Data Cleaning &amp; Visualization</h3>
+        <p>Python, Pandas, Matplotlib, Plotly, Docker, Grafana</p>
+        <ul>
+            <li>Cleaned a 100,000+ row CSV retail dataset and reduced errors by over 90%.</li>
+            <li>Built Jupyter Notebook workflows for data wrangling and interactive visualization.</li>
+            <li>Deployed the pipeline in Docker and connected dashboards to Grafana.</li>
+        </ul>
+
+        <h3>Smart Vacuum Cleaner Simulation</h3>
+        <p>Python, Pygame, NumPy</p>
+        <ul>
+            <li>Developed a simulation game with two AI-powered vacuum robots.</li>
+            <li>Used A* and Uniform Cost Search to increase cleaning efficiency by over 20%.</li>
+            <li>Created an AI opponent with real-time decision-making logic.</li>
+        </ul>
+
+        <h3>University Management System</h3>
+        <p>SQL, Database Design</p>
+        <ul>
+            <li>Designed a normalized database and ER diagrams for a system with over 5,000 users.</li>
+            <li>Wrote SQL queries and procedures for course registration and permissions.</li>
+        </ul>
+    </div>
+
+    <!-- ========== SKILLS ========== -->
+    <div class="panel" id="skills">
+        <h2>Skills</h2>
+
+        <!-- Table with rowspan (like the AUIB contact table) -->
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Skills</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Programming</td>
+                <td>Python, Java, C++</td>
+            </tr>
+            <tr>
+                <td>SQL, JavaScript</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Data &amp; Tools</td>
+                <td>Pandas, NumPy, Matplotlib</td>
+            </tr>
+            <tr>
+                <td>Grafana, Docker, Git, Linux</td>
+            </tr>
+        </table>
+
+        <h3>My Skill List (you can change it!)</h3>
+        <ul class="skill-list" id="skill-list">
+            <li class="skill-item">Python</li>
+            <li class="skill-item">SQL</li>
+            <li class="skill-item">Grafana</li>
+        </ul>
+        <button class="button" id="add-skill-button">Add Skill</button>
+        <button class="button" id="delete-skill-button">Delete Last Skill</button>
+
+        <h3>Certifications</h3>
+        <ol>
+            <li>Cisco Intro to Computer Science</li>
+            <li>Microsoft Office Specialist</li>
+        </ol>
+    </div>
+
+    <!-- ========== EDUCATION ========== -->
+    <div class="panel" id="education">
+        <h2>Education</h2>
+        <table>
+            <tr>
+                <th colspan="2">American University of Iraq - Baghdad (AUIB)</th>
+            </tr>
+            <tr>
+                <td>Degree</td>
+                <td>B.Sc. in Computer Science (Expected Dec 2026)</td>
+            </tr>
+            <tr>
+                <td>Coursework</td>
+                <td>Data Structures &amp; Algorithms, Database Systems, Software Engineering, Operating Systems</td>
+            </tr>
+        </table>
+        <p>Learn more about my university:
+            <a href="https://auib.edu.iq" target="_blank">AUIB website</a>
+        </p>
+    </div>
+
+    <!-- ========== CONTACT ========== -->
+    <div class="panel" id="contact">
+        <h2>Contact Me</h2>
+        <p>
+            <a href="mailto:alsabtinn@gmail.com">Email</a> |
+            <a href="https://linkedin.com/in/nour-alsabtin" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/11Nour11" target="_blank">GitHub</a> |
+            Phone: +964 776 536 5552
+        </p>
+
+        <form>
+            <fieldset>
+                <legend>Send me a message</legend>
+
+                Name:
+                <input type="text" id="visitor-name"><br>
+
+                Message:<br>
+                <textarea rows="3" cols="40"></textarea><br>
+
+                I am contacting you for:
+                <input type="radio" name="reason"> Job offer
+                <input type="radio" name="reason"> Question<br>
+
+                Interests:
+                <input type="checkbox"> Data Analysis
+                <input type="checkbox"> AI
+                <input type="checkbox"> Web<br>
+
+                Preferred contact:
+                <select>
+                    <option>Email</option>
+                    <option>Phone</option>
+                    <option>LinkedIn</option>
+                </select><br>
+
+                Meeting date:
+                <input type="date"><br>
+
+                Your favorite color:
+                <input type="color"><br>
+
+                <input type="button" class="button" id="send-button" value="Send">
+                <input type="reset" class="button">
+            </fieldset>
+        </form>
+    </div>
+
+    <p style="text-align:center;"><a href="#cv-title">Back to top</a></p>
+
+</div>
+
+<script>
+    // ---------- Function from Assignment 1: count how many times a word appears ----------
+    function searchWord(text, wordToSearch) {
+        // make everything lowercase and remove . and , so words match easily
+        text = text.toLowerCase().replace(/[.,]/g, "");
+        wordToSearch = wordToSearch.toLowerCase();
+
+        const words = text.split(" ");
+        let frequency = 0;
+
+        for (let i = 0; i < words.length; i++) {
+            if (words[i] == wordToSearch) {
+                frequency++;
+            }
+        }
+
+        return frequency;
+    }
+
+    // ---------- Say your name (changes the greeting and the tab title) ----------
+    document.getElementById('greet-button').onclick = function() {
+        var visitor = prompt("What is your name?");
+        if (visitor) {
+            document.getElementById('greeting').innerText = "Welcome, " + visitor + "! Thanks for visiting my CV.";
+            document.title = "Welcome " + visitor + " - Nour's CV";
+        }
+    };
+
+    // ---------- Change background color (cycles through a list) ----------
+    var colors = ["#1b2233", "#0f3d3e", "#3b2f4a", "#33261d"];
+    var colorIndex = 0;
+
+    document.getElementById('color-button').onclick = function() {
+        colorIndex = colorIndex + 1;
+        if (colorIndex == colors.length) {
+            colorIndex = 0;
+        }
+        document.body.style.backgroundColor = colors[colorIndex];
+    };
+
+    // ---------- Hide / Show the projects section ----------
+    document.getElementById('toggle-button').onclick = function() {
+        var projects = document.getElementById('projects');
+        if (projects.style.display == 'none') {
+            projects.style.display = 'block';
+            this.innerText = 'Hide Projects';
+        } else {
+            projects.style.display = 'none';
+            this.innerText = 'Show Projects';
+        }
+    };
+
+    // ---------- Search a word in my summary ----------
+    document.getElementById('search-button').onclick = function() {
+        var word = prompt("Enter a word to search for:");
+        if (word) {
+            var summary = document.getElementById('summary').innerText;
+            var result = searchWord(summary, word);
+            document.getElementById('search-result').innerText =
+                "The word '" + word + "' appears " + result + " times in my summary.";
+        }
+    };
+
+    // ---------- Add Skill ----------
+    document.getElementById('add-skill-button').onclick = function() {
+        var newSkill = prompt("Enter new skill:");
+        if (newSkill) {
+            var li = document.createElement('li');
+            li.className = 'skill-item';
+            li.textContent = newSkill;
+            document.getElementById('skill-list').appendChild(li);
+        }
+    };
+
+    // ---------- Delete Last Skill ----------
+    document.getElementById('delete-skill-button').onclick = function() {
+        var skillItems = document.getElementsByClassName('skill-item');
+        if (skillItems.length > 0) {
+            document.getElementById('skill-list').removeChild(skillItems[skillItems.length - 1]);
+        } else {
+            alert("No skills to delete.");
+        }
+    };
+
+    // ---------- Send button ----------
+    document.getElementById('send-button').onclick = function() {
+        var name = document.getElementById('visitor-name').value;
+        if (name) {
+            alert("Thank you " + name + "! Your message was received.");
+        } else {
+            alert("Please write your name first.");
+        }
+    };
+</script>
+
+</body>
+</html>
