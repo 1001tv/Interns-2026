@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Sign Up / Sign In</title>
+</head>
+
+<body>
+
+    <!-- Sign Up Section -->
+    <h1>Hello!</h1>
+    <h2>Sign Up to Get Started</h2>
+
+    <input type="email" id="signUpEmail" placeholder="Email">
+    <input type="password" id="signUpPassword" placeholder="Password">
+
+    <button type="button" onclick="signUp()">Submit</button>
+
+
+    <!-- Sign In Section -->
+    <h2>Sign In If You Already Have an Account</h2>
+
+    <input type="email" id="signInEmail" placeholder="Email">
+    <input type="password" id="signInPassword" placeholder="Password">
+
+    <button type="button" onclick="signIn()">Submit</button>
+
+
+    <script>
+
+        // Creates a new user account and saves it to localStorage
+        function signUp() {
+
+            const email = document.getElementById("signUpEmail").value;
+            const password = document.getElementById("signUpPassword").value;
+
+            // Get existing users, or create an empty array if none exist
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Add the new user to the users array
+            users.push({
+                email: email,
+                password: password
+            });
+
+            // Save the updated users array back to localStorage
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Account Created!");
+        }
+
+
+        // Checks whether the entered login information matches an account
+        function signIn() {
+
+            const email = document.getElementById("signInEmail").value;
+            const password = document.getElementById("signInPassword").value;
+
+            if (accountExists(email, password)) {
+                alert("Welcome back!");
+            } else {
+                alert("Account not found");
+            }
+        }
+
+
+        // Checks if an account with the given email and password exists
+        function accountExists(email, password) {
+
+            // Get the saved users, or use an empty array if none exist
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Check each saved user
+            for (let i = 0; i < users.length; i++) {
+
+                if (
+                    users[i].email === email &&
+                    users[i].password === password
+                ) {
+                    return true;
+                }
+            }
+
+            // No matching account was found
+            return false;
+        }
+
+    </script>
+
+</body>
+
+</html>
