@@ -11,12 +11,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow? // the window is already created with UIWindow type
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds) //sets the window to fill the screen
-        window?.windowScene = windowScene //push the contents of the window scene into the window
-        window?.rootViewController = ViewController()
-        window?.makeKeyAndVisible()
+
+        window = UIWindow(windowScene: windowScene)          //creates the window and connects it to the scene
+        window?.rootViewController = LoadingVC() //changing the root to be hte loading screen
+        window?.makeKeyAndVisible()                          // shows the window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
