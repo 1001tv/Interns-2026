@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  MockUpProject
-//
-//  Created by Arwa Albazi on 10/8/26.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -18,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)          //creates the window and connects it to the scene
         window?.rootViewController = LoadingVC() //changing the root to be hte loading screen
         window?.makeKeyAndVisible()                          // shows the window
+        AppRouter.shared.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
