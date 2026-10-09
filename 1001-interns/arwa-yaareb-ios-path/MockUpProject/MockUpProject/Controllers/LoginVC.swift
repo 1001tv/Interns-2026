@@ -18,7 +18,7 @@ final class LoginVC: UIViewController{
         ])
         
     }
-    @obj private func fakeLogin(){
+    @objc private func fakeLogin(){
         AppRouter.shared.didLogin(token: "test-token")
     }
     
