@@ -41,6 +41,9 @@ final class LoadingVC: UIViewController {
 
     private func checkSession() {
         Task {
+            
+            try? await Task.sleep(nanoseconds: 2_000_000_000) // TEMPORARY: holds the loading screen for 2 seconds
+            
             // 1. is there a token saved on the phone?
             guard let token = KeychainHelper.read(), !token.isEmpty else {
                 AppRouter.shared.showLogin()
