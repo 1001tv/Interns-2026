@@ -34,7 +34,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				Services/AuthService.swift,
 			);
 			target = A814B1B23077A83000F1EB85 /* MockUpProject */;
 		};
