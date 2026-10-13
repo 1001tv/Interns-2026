@@ -1,66 +1,68 @@
 import UIKit
 
 final class LoadingVC: UIViewController {
-
-    private let logoLabel = UILabel()
-    private let spinner = UIActivityIndicatorView(style: .large)
-
+    
+    private let logoImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFit
+        iv.image = UIImage(named: "AppLogo")
+        iv.clipsToBounds = true
+        iv.layer.cornerRadius = 24
+        return iv
+    }()
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView(style: .large)
+        ai.translatesAutoresizingMaskIntoConstraints = false
+        ai.color = AppTheme.primaryGreen
+        ai.startAnimating()
+        return ai
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        setupUI()
-    }
-
-    // runs when the screen is actually visible, so the user always sees loading first
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        view.backgroundColor = AppTheme.backgroundDark
+        setupHierarchy()
         checkSession()
     }
-
-    private func setupUI() {
-        logoLabel.text = "1001"
-        logoLabel.font = .systemFont(ofSize: 48, weight: .bold)
-        logoLabel.textColor = .white
-
-        spinner.color = .white
-        spinner.startAnimating()
-
-        // creating our stack (like a column)
-        let stack = UIStackView(arrangedSubviews: [logoLabel, spinner])
-        stack.axis = .vertical
-        stack.spacing = 24
-        stack.alignment = .center
-        stack.translatesAutoresizingMaskIntoConstraints = false // makes autolayout work
-        view.addSubview(stack) // show it after we configured it above
-
-        NSLayoutConstraint.activate([ // centers the stack on the screen
-            stack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    
+    private func setupHierarchy() {
+        view.addSubview(logoImageView)
+        view.addSubview(activityIndicator)
+        
+        NSLayoutConstraint.activate([
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40),
+            logoImageView.widthAnchor.constraint(equalToConstant: 120),
+            logoImageView.heightAnchor.constraint(equalToConstant: 120),
+            
+            activityIndicator.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 32),
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
-
+    
     private func checkSession() {
         Task {
+            // Keep brief splash screen presence
+            try? await Task.sleep(nanoseconds: 1_200_000_000)
             
-            try? await Task.sleep(nanoseconds: 2_000_000_000) // TEMPORARY: holds the loading screen for 2 seconds
-            
-            // 1. is there a token saved on the phone?
-            guard let token = KeychainHelper.read(), !token.isEmpty else {
+            guard let token = KeychainHelper.read() else {
                 AppRouter.shared.showLogin()
                 return
             }
-
-            // 2. there is one, so ask the server if it is still valid
+            
             do {
-                if try await AuthService.shared.validateToken(token) {
-                    AppRouter.shared.showHome()      // server said valid
+                let isValid = try await AuthService.shared.validateToken(token)
+                if isValid {
+                    AppRouter.shared.showHome()
                 } else {
-                    KeychainHelper.delete()          // server said rejected
+                    KeychainHelper.delete()
                     AppRouter.shared.showLogin()
                 }
             } catch {
-                // 3. could not reach the server: keep the token, do not log out
-                print("Could not reach the server")
+                print("Could not reach backend: \(error)")
+                AppRouter.shared.showLogin()
             }
         }
     }
